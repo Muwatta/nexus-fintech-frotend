@@ -1,31 +1,27 @@
 import React, { useState } from "react";
-import api from "../api/api";
 
-interface Props {
-  onSuccess: () => void;
-}
-
-const WithdrawForm: React.FC<Props> = ({ onSuccess }) => {
+const WithdrawForm: React.FC<{ onWithdraw: (amount: number) => void }> = ({
+  onWithdraw,
+}) => {
   const [amount, setAmount] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    await api.post("/accounts/withdraw/", { amount: parseFloat(amount) });
+    onWithdraw(Number(amount));
     setAmount("");
-    onSuccess();
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-2">
+    <form onSubmit={submit} className="bg-white p-4 rounded shadow">
+      <h3 className="font-semibold mb-3">Withdraw</h3>
       <input
         type="number"
-        step="0.01"
-        placeholder="Amount"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
-        className="border p-2 rounded w-full"
+        className="border p-2 rounded w-full mb-3"
+        placeholder="Amount"
       />
-      <button type="submit" className="bg-red-500 text-white px-4 py-2 rounded">
+      <button className="bg-red-600 text-white px-4 py-2 rounded w-full">
         Withdraw
       </button>
     </form>

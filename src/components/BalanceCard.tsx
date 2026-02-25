@@ -1,14 +1,10 @@
 import React from "react";
 
-interface Props {
-  balance: number;
-}
-
-const BalanceCard: React.FC<Props> = ({ balance }) => {
+const BalanceCard: React.FC<{ balance: number }> = ({ balance }) => {
   return (
     <div className="bg-white p-6 rounded shadow text-center">
-      <h2 className="text-xl font-semibold mb-2">Current Balance</h2>
-      <p className="text-3xl font-bold">${balance.toFixed(2)}</p>
+      <h2 className="text-lg text-gray-500">Current Balance</h2>
+      <p className="text-3xl font-bold mt-2">₦{balance}</p>
     </div>
   );
 };

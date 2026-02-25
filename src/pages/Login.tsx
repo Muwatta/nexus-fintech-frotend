@@ -14,7 +14,7 @@ const Login: React.FC = () => {
 
     try {
       const res = await api.post("/auth/login/", { username, password });
-      const token = res.data.access; // assuming Django REST JWT returns {access, refresh}
+      const token = res.data.access;
       localStorage.setItem("token", token);
       setAuthToken(token);
       navigate("/dashboard");
