@@ -52,7 +52,7 @@ A modern, responsive frontend for the **Nexus Fintech** platform built with Reac
 
 ```bash
 # Clone repository
-git clone <repo-url>
+git clone https://github.com/Muwatta/nexus-fintech-frotend/
 cd nexus-fintech-frontend
 
 # Install dependencies
