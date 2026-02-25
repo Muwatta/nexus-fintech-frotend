@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-lock.yaml
+package-lock.json
+
+# Vite cache
+.vite/
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Editor files
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# TypeScript
+*.tsbuildinfo
+
+# Tailwind / PostCSS cache
+.postcss-cache/
