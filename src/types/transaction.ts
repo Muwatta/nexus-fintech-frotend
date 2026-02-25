@@ -3,4 +3,5 @@ export interface Transaction {
   type: "deposit" | "withdraw" | "transfer";
   amount: number;
   created_at: string;
+  status: "success" | "failed";
 }

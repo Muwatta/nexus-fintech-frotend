@@ -10,7 +10,9 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard"; // create this page later
 import { isAuthenticated } from "../utils/auth";
 
-const ProtectedRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
+const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   return isAuthenticated() ? children : <Navigate to="/login" replace />;
 };
 

@@ -1,12 +1,15 @@
 // src/App.tsx
 import React from "react";
 import AppRoutes from "./routes/AppRoutes";
+import { AuthProvider } from "./context/AuthContext";
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <AppRoutes />
-    </div>
+    <AuthProvider>
+      <div className="min-h-screen bg-gray-100">
+        <AppRoutes />
+      </div>
+    </AuthProvider>
   );
 };
 

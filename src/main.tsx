@@ -3,8 +3,9 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { setAuthToken } from "./api/api";
+import { getToken } from "./utils/auth";
 
-const token = localStorage.getItem("token");
+const token = getToken();
 if (token) {
   setAuthToken(token);
 }
