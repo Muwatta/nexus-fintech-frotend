@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -7,24 +7,21 @@ import {
 } from "react-router-dom";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import Dashboard from "../pages/Dashboard"; // create this page later
-import { isAuthenticated } from "../utils/auth";
+import Dashboard from "../pages/Dashboard";
+import { AuthContext } from "../context/AuthContext";
 
-const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  return isAuthenticated() ? children : <Navigate to="/login" replace />;
+const ProtectedRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
+  const { isAuth } = useContext(AuthContext);
+  return isAuth ? children : <Navigate to="/login" replace />;
 };
 
 const AppRoutes: React.FC = () => {
   return (
     <Router>
       <Routes>
-        {/* Public routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Protected route */}
         <Route
           path="/dashboard"
           element={
@@ -34,7 +31,6 @@ const AppRoutes: React.FC = () => {
           }
         />
 
-        {/* Default redirect */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>
