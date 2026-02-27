@@ -1,11 +1,9 @@
-// src/context/AuthContext.tsx
-
 import React, { createContext, useState, useEffect } from "react";
 import { getToken } from "../utils/auth";
 
 interface AuthContextType {
   isAuth: boolean;
-  setAuth: (value: boolean) => void;
+  setAuth: (val: boolean) => void;
 }
 
 export const AuthContext = createContext<AuthContextType>({
@@ -20,7 +18,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     const token = getToken();
-    if (token) setAuth(true);
+    if (token) {
+      setAuth(true);
+    }
   }, []);
 
   return (
