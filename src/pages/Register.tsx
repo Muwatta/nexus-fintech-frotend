@@ -6,6 +6,7 @@ const Register: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +31,7 @@ const Register: React.FC = () => {
     }
 
     try {
-      await api.post("/auth/register/", { username, password });
+      await api.post("/auth/register/", { username, password, email });
       setSuccess("Registration successful! Redirecting to login...");
       setTimeout(() => {
         navigate("/login");
@@ -85,6 +86,21 @@ const Register: React.FC = () => {
                 onChange={(e) => setUsername(e.target.value)}
                 className="w-full border-2 border-blue-500/30 bg-slate-700/50 text-white placeholder-gray-400 focus:border-blue-400 p-3 rounded-lg focus:outline-none transition"
                 required
+                disabled={isLoading}
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-300 mb-2">
+                Email address{" "}
+                <span className="text-xs text-gray-400">(optional)</span>
+              </label>
+              <input
+                type="email"
+                placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full border-2 border-blue-500/30 bg-slate-700/50 text-white placeholder-gray-400 focus:border-blue-400 p-3 rounded-lg focus:outline-none transition"
                 disabled={isLoading}
               />
             </div>

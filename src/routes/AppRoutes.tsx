@@ -9,6 +9,12 @@ import {
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ChangePassword from "../pages/ChangePassword";
+import ForgotPassword from "../pages/ForgotPassword";
+import Deposit from "../pages/Deposit";
+import Withdraw from "../pages/Withdraw";
+import Transfer from "../pages/Transfer";
+import Invest from "../pages/Invest";
 import Dashboard from "../pages/Dashboard";
 import { AuthContext } from "../context/AuthContext";
 
@@ -24,6 +30,12 @@ const AppRoutes: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/change-password" element={<ChangePassword />} />
+        <Route path="/deposit" element={<Deposit />} />
+        <Route path="/withdraw" element={<Withdraw />} />
+        <Route path="/transfer" element={<Transfer />} />
+        <Route path="/invest" element={<Invest />} />
 
         <Route
           path="/dashboard"

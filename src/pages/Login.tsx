@@ -118,6 +118,15 @@ const Login: React.FC = () => {
                 required
                 disabled={isLoading}
               />
+              <div className="text-right mt-1">
+                <button
+                  type="button"
+                  onClick={() => navigate("/forgot-password")}
+                  className="text-sm text-blue-400 hover:text-blue-300 underline"
+                >
+                  Forgot password?
+                </button>
+              </div>
             </div>
 
             <button

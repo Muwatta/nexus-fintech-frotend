@@ -140,6 +140,12 @@ const Dashboard = () => {
               Welcome, <strong>{account?.username}</strong>
             </span>
             <button
+              onClick={() => navigate("/change-password")}
+              className="px-4 py-2 bg-yellow-600/20 hover:bg-yellow-600/40 text-yellow-300 hover:text-yellow-200 font-semibold rounded-lg border border-yellow-500/30 transition"
+            >
+              🔐 Password
+            </button>
+            <button
               onClick={handleLogout}
               className="px-4 py-2 bg-red-600/20 hover:bg-red-600/40 text-red-300 hover:text-red-200 font-semibold rounded-lg border border-red-500/30 transition"
             >
@@ -240,25 +246,30 @@ const Dashboard = () => {
                 icon: "💰",
                 label: "Deposit",
                 color: "from-green-600 to-emerald-600",
+                route: "/deposit",
               },
               {
                 icon: "💸",
                 label: "Withdraw",
                 color: "from-orange-600 to-amber-600",
+                route: "/withdraw",
               },
               {
                 icon: "🔄",
                 label: "Transfer",
                 color: "from-purple-600 to-pink-600",
+                route: "/transfer",
               },
               {
                 icon: "📈",
                 label: "Invest",
                 color: "from-blue-600 to-cyan-600",
+                route: "/invest",
               },
             ].map((action, i) => (
               <button
                 key={i}
+                onClick={() => navigate(action.route)}
                 className={`bg-gradient-to-br ${action.color} rounded-xl p-6 text-white font-bold hover:shadow-lg transition transform hover:scale-105 text-center`}
               >
                 <div className="text-4xl mb-2">{action.icon}</div>
